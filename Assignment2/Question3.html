@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Q3</title>
+        <style>
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                padding: 10px 15px;
+                margin: 5px 0;
+                background-color: #f0f0f0;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Dynamic List Example</h1>
+        <ul id="myList">
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+        <script>
+        
+            function generateRandomString(length = 8) {// Function to generate a random string
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+                let randomString = '';
+                for (let i = 0; i < length; i++) {//less than 8
+                    randomString += chars.charAt(Math.floor(Math.random() * chars.length));//makes a random number from chars
+                }
+                return randomString;//returns the random
+            }
+
+            const ulElement = document.getElementById('myList');// Selects the <ul> element
+
+            window.onload = () => {// Adds a new <li> when the page loads
+                const newLi = document.createElement('li');//creates the element
+                newLi.textContent = 'Fourth item';//calls it forth item
+                ulElement.appendChild(newLi);//actually adds it to the existing list
+            };
+
+            ulElement.addEventListener('click', (event) => { // Adds event listeners to all <li> items for text changes
+                if (event.target.tagName === 'LI') {
+                    event.target.textContent = generateRandomString();// Change the clicked <li> text to a random string
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Q2</title>
+        <style>
+            #clickButton {/* styling */
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <button id="clickButton">Click Me!</button><!--button itself-->
+
+        <script>
+        function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let colour = '#';
+        for (let i = 0; i < 6; i++) {//i is counter
+            colour += letters[Math.floor(Math.random() * 16)];//makes a new combo of numbers which in this case is a new colour
+        }
+        return colour;    
+        }
+
+        const button = document.getElementById('clickButton');//gets the button element
+
+        button.addEventListener('click', () => {//event listener waiting for button to be clicked
+            alert('Button clicked!');
+
+            const randomColor = getRandomColor();//variable value is the random colour generated above
+            button.style.backgroundColor = randomColor;//this changes the colour apon the click
+        });
+        </script>
+    </body>
+</html>
